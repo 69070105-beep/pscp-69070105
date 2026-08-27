@@ -5,7 +5,7 @@ from decimal import Decimal, ROUND_DOWN
 decimal.getcontext().prec = 10000
 
 n = Decimal(input().strip())
-k = int(input().strip())
+k = int(input().strip())    
 
 rate = Decimal("0.0381")
 
