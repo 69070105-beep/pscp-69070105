@@ -1,11 +1,15 @@
 """กบน้อยกระโดด"""
 
 x, y = map(int, input().split())
+count = 0
+a = 0
 
-mile = y - x
-num = mile // 2
+while x > 0 and a < y:
+    a += x
+    x -= 2
+    count += 1
 
-if not mile % 2:
-    print(num)
+if a >= y:
+    print(count)
 else:
-    print("-1")
+    print(-1)
