@@ -1,22 +1,26 @@
 """สลากกินแบ่ง"""
 
-n, num1 =  map(str, input().split())
-m, num2 =  map(str, input().split())
+n, num1 = input().split()
+m, num2 = input().split()
 
-if n == m and num1 == num2:
-    print("1000000")
-if not n == m and num1 == num2:
-    print("100000")
-if n == m and num1[2:5] == num2[2:5]:
-    print("2000")
-if  n == m and num1[3:5] == num2[3:5]:
-    print("1000")
-if not n == m and num1[2:5] == num2[2:5]:
-    print("200")
-if not n == m and num1[3:5] == num2[3:5]:
-    print("100")
-elif n == m:
-    print("20")
-else:
-    print("0")
+def main():
+    """คำนวน"""
+    high = 0
+    if n == m and num1 == num2:
+        high = max(high, 1000000)
+    if not n == m and num1 == num2:
+        high = max(high, 100000)
+    if n == m and num1[-3:] == num2[-3:]:
+        high = max(high, 2000)
+    if n == m and num1[-2:] == num2[-2:]:
+        high = max(high, 1000)
+    if not n == m and num1[-3:] == num2[-3:]:
+        high = max(high, 200)
+    if not n == m and num1[-2:] == num2[-2:]:
+        high = max(high, 100)
+    if n == m:
+        high = max(high, 20)
 
+    print(high)
+
+main()
