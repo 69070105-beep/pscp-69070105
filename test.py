@@ -1,17 +1,17 @@
-a = int(input())
+"""ตั๋วหนังสุดป่วน"""
+
+all_tiket = int(input())
 count = 0
-is_pass = True
 
-for _ in range(a):
-    d = int(input())
-    count += d
-    if d < 50:
-        is_pass = False
-
-s = count / a
-print(f"{s:.1f}")
-
-if is_pass and s >= 60:
-    print("PASS")
-else:
-    print("FAIL")
+while all_tiket > 0:
+    age, tiket = map(int,input().split())
+    if age > 60:
+        all_tiket -= tiket
+        count += (tiket * 150) // 2
+        print(f"{count} {all_tiket}")
+    elif 15 < age <= 22:
+        all_tiket -= tiket
+        count += (tiket * 150) * 0.02
+        print(f"{count} {all_tiket}")
+    elif
+    
