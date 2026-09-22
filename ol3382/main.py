@@ -1,8 +1,14 @@
 """Day08-0_02-Backward"""
 
-some = []
-x = ""
-while x == "NULL":
+lis = []
+
+while True:
     x = input()
-    some.append(x)
-    print(some)
+    if x == "NULL":
+        break
+    lis.append(x)
+
+lis = lis[::-1]
+
+for i in lis:
+    print(i)
