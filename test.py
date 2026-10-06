@@ -1,17 +1,9 @@
-"""ตั๋วหนังสุดป่วน"""
-
-all_tiket = int(input())
+n = input()
+m = input()
+ms = len(m)
 count = 0
-
-while all_tiket > 0:
-    age, tiket = map(int,input().split())
-    if age > 60:
-        all_tiket -= tiket
-        count += (tiket * 150) // 2
-        print(f"{count} {all_tiket}")
-    elif 15 < age <= 22:
-        all_tiket -= tiket
-        count += (tiket * 150) * 0.02
-        print(f"{count} {all_tiket}")
-    elif
-    
+for i in n:
+    if i !=  m:
+       count += 1
+sss = ms - count
+print(sss)
