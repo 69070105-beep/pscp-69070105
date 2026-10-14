@@ -1,4 +1,3 @@
-
 """SumOfNumber"""
 
 target = int(input())
