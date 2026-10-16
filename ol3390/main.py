@@ -1,13 +1,30 @@
 """Array 2D ตรวจสอบ"""
 
-count_Row = 0
-count_colrem = 0
+def main():
+    """ckjsdic"""
+    grid = []
+    for _ in range(5):
+        row = list(map(int, input().split()))
+        grid.append(row)
+
+    err_row = -1
+    err_col = -1
+
+    for r in range(5):
+        if sum(grid[r]) % 2:
+            err_row = r
+            break
+
+    for c in range(5):
+        col_sum = 0
+        for r in range(5):
+            col_sum += grid[r][c]
+        if col_sum % 2:
+            err_col = c
+            break
+
+    print(f"{err_row} {err_col}")
 
 
-for i in range(5):
-    x = map(int,input().split())
-    for j in x:
-            count_colrem += 1
-            if j > 0:
-
-print(f"{count_Row} {count_colrem}")
+if __name__ == "__main__":
+    main()
