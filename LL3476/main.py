@@ -1,55 +1,30 @@
 """CuteCat CuteFox"""
-cats = {}
-foxes = {}
+import ast
 
-n = int(input())
-for _ in range(n):
-    text = input()
-    for ch in ['{', '}', '"', "'", '“', '”', '‘', '’']:
-        text = text.replace(ch, '')
+total = int(input())
+animal = {}
 
-    pairs = text.split(',')
-    for pair in pairs:
-        if ':' in pair:
-            parts = pair.split(':', 1)
-            s1 = parts[0].strip()
-            s2 = parts[1].strip()
+for _ in range(total):
+    catfox = ast.literal_eval(input())
 
-            s1_lower = s1.lower()
-            s2_lower = s2.lower()
+    for name, num in catfox.items():
+        animal[num.strip()] = name.strip()
 
-            if "cat" in s1_lower or "fox" in s1_lower:
-                code, name = s1, s2
-            elif "cat" in s2_lower or "fox" in s2_lower:
-                name, code = s1, s2
-            else:
-                name, code = s1, s2
+if "Fubuki" not in animal.values() and "Fox01" not in animal:
+    animal["Fox01"] = "Fubuki"
 
-            if "cat" in code.lower():
-                cats.update({code: name})
-            else:
-                foxes.update({code: name})
+if "Garfield" not in animal.values() and "Cat01" not in animal:
+    animal["Cat01"] = "Garfield"
 
-all_names = set(cats.values()) | set(foxes.values())
-all_codes = set(cats.keys()) | set(foxes.keys())
+def kk(x):
+    """riang num"""
+    return int(x[3:])
 
-if "Garfield" not in all_names and "Cat01" not in all_codes:
-    cats.update({"Cat01": "Garfield"})
+cat = sorted((c for c in animal if c.startswith("Cat")), key=kk)
+fox = sorted((f for f in animal if f.startswith("Fox")), key=kk)
 
-if "Fubuki" not in all_names and "Fox01" not in all_codes:
-    foxes.update({"Fox01": "Fubuki"})
+print(f"Cat : {len(cat)}")
+print(f"Fox : {len(fox)}")
 
-print(f"Cat : {len(cats)}")
-print(f"Fox : {len(foxes)}")
-
-
-def sort_key(code):
-    digits = ''.join(filter(str.isdigit, code))
-    return int(digits) if digits else 0
-
-
-for code in sorted(cats.keys(), key=sort_key):
-    print(f"{cats.get(code)} : {code}")
-
-for code in sorted(foxes.keys(), key=sort_key):
-    print(f"{foxes.get(code)} : {code}")
+for a in cat + fox:
+    print(f"{animal[a]} : {a}")
